@@ -1,0 +1,30 @@
+// Dont claim this as your own. This was made for Intros but can be used for anything when this expression is put into scale.
+// MAKE SURE TO REMOVE THESE COMMENTS
+
+n = 0;
+
+if (numKeys > 0){
+n = nearestKey(time).index;
+if (key(n).time > time){
+n--;
+
+}
+}
+if (n == 0){
+t = 0;
+}else{
+t = time - key(n).time;
+}
+
+if (n > 0 && t < 1){
+v = velocityAtTime(key(n).time - thisComp.frameDuration/10);
+
+// You can mess around with these settings if you want.
+
+amp = .1;
+freq = 3.0;
+decay = 6.0;
+value + v*amp*Math.sin(freq*t*2*Math.PI)/Math.exp(decay*t);
+}else{
+value;
+}
